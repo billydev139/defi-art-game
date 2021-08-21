@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-// import components
-import Home from "../components/home";
+// import pages
+import Home from "../pages/Home";
 class MainRouter extends React.Component {
   render() {
     return (
