@@ -11,6 +11,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "sass": "^1.38.0",
+    "use-wallet": "^0.9.0",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
