@@ -2,7 +2,6 @@
 import React, { Fragment, useState } from "react";
 import { useWallet, UseWalletProvider } from "use-wallet";
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 
 // import style
 import "./style.scss";
@@ -29,25 +28,31 @@ const Header = () => {
             </Modal.Header>
             <Modal.Body>
               <div>
-                <h4>Account:</h4> 
+                <h4>Account:</h4>
                 <p>{wallet.account}</p>
               </div>
               <div>
-                <h4>Balance:</h4> 
+                <h4>Balance:</h4>
                 <p>{wallet.balance}</p>
               </div>
             </Modal.Body>
-            <Modal.Footer>
-              <button className="btn-metamask-disconnect" onClick={() => wallet.reset()}>disconnect</button>
-              <button className="btn-modal-close" onClick={handleClose}>
-                Close
-              </button>
-            </Modal.Footer>
           </Modal>
         </Fragment>
       ) : (
-        <div className="container">
-          <div className="header-container">
+        ""
+      )}
+      <div className="container">
+        <div className="header-container">
+          {wallet.status === "connected" ? (
+            <button
+              className="btn-metamask-disconnect"
+              onClick={() => {
+                wallet.reset();
+              }}
+            >
+              disconnect
+            </button>
+          ) : (
             <button
               className="btn-metamask"
               onClick={() => {
@@ -63,11 +68,9 @@ const Header = () => {
               />
               Connect to MetaMask
             </button>
-            {/* <button onClick={() => wallet.connect("frame")}>Frame</button>
-          <button onClick={() => wallet.connect("portis")}>Portis</button> */}
-          </div>
+          )}
         </div>
-      )}
+      </div>
     </Fragment>
   );
 };
