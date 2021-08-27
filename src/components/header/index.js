@@ -44,14 +44,24 @@ const Header = () => {
       <div className="container">
         <div className="header-container">
           {wallet.status === "connected" ? (
-            <button
-              className="btn-metamask-disconnect"
-              onClick={() => {
-                wallet.reset();
-              }}
-            >
-              disconnect
-            </button>
+            <Fragment>
+              <button
+                className="btn-metamask-disconnect"
+                onClick={() => {
+                  wallet.reset();
+                }}
+              >
+                disconnect
+              </button>
+              <button
+                className="btn-metamask-disconnect"
+                onClick={() => {
+                  handleShow();
+                }}
+              >
+                See Account Details
+              </button>
+            </Fragment>
           ) : (
             <button
               className="btn-metamask"
